@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 180" role="img" aria-label="ORBY">
+  <!-- side bumps -->
+  <rect x="6" y="58" width="22" height="34" rx="11" fill="#C85F2E"/>
+  <rect x="192" y="58" width="22" height="34" rx="11" fill="#C85F2E"/>
+  <!-- feet -->
+  <rect x="58" y="138" width="40" height="26" rx="13" fill="#B4532A"/>
+  <rect x="122" y="138" width="40" height="26" rx="13" fill="#B4532A"/>
+  <!-- body -->
+  <rect x="18" y="14" width="184" height="134" rx="30" fill="#E8743B"/>
+  <rect x="18" y="14" width="184" height="134" rx="30" fill="none" stroke="#C85F2E" stroke-width="5"/>
+  <!-- face screen -->
+  <rect x="42" y="40" width="136" height="72" rx="20" fill="#4ECDC4"/>
+  <!-- eyes -->
+  <rect x="64" y="64" width="26" height="12" rx="6" fill="#2C2C3E"/>
+  <rect x="130" y="64" width="26" height="12" rx="6" fill="#2C2C3E"/>
+  <!-- smile -->
+  <path d="M100 88 Q110 97 120 88" stroke="#2C2C3E" stroke-width="5" fill="none" stroke-linecap="round"/>
+</svg>
