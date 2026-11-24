@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Open in ORBY</title>
+<meta name="description" content="A short lesson from ORBY, career practice in a few minutes a day.">
+<meta property="og:title" content="A Byte from ORBY">
+<meta property="og:description" content="Career practice in a few minutes a day. Tap to watch it in ORBY.">
+<!--
+  Where shared Quicks land (Joe, 2026-11-23). Published on orby-site as
+  /orby-site/open/ (a push: only on Joe's yes). With ORBY installed, the page
+  hands the Quick to the app (com.josephananth.orby://quick/<id>); without it,
+  iOS can't open the link and the page offers ORBY instead.
+  GET_ORBY: the App Store page once ORBY is listed (until then the site).
+-->
+<style>
+  :root { --bg: #0A0E1A; --card: #111827; --text: #FFFFFF; --soft: rgba(255,255,255,0.7); --brand: #283593; --accent: #00D4FF; }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--text); font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; display: flex; align-items: center; justify-content: center; padding: 24px 16px; }
+  main { width: 100%; max-width: 380px; background: var(--card); border-radius: 20px; padding: 28px 22px; text-align: center; }
+  .orby { width: 84px; height: 64px; margin: 0 auto 18px; border-radius: 16px; background: #E8743B; position: relative; }
+  .orby::after { content: ""; position: absolute; inset: 12px 10px; border-radius: 10px; background: #4ECDC4; }
+  h1 { font-size: 22px; line-height: 1.3; margin: 0 0 8px; }
+  p { color: var(--soft); margin: 0 0 22px; }
+  a.btn { display: block; padding: 14px 16px; border-radius: 12px; background: var(--brand); color: var(--text); text-decoration: none; font-weight: 600; margin-top: 10px; }
+  a.ghost { background: transparent; border: 1px solid rgba(255,255,255,0.2); }
+  small { display: block; margin-top: 18px; color: var(--soft); }
+</style>
+</head>
+<body>
+<main>
+  <div class="orby" aria-hidden="true"></div>
+  <h1 id="title">Opening ORBY…</h1>
+  <p id="sub">If ORBY is on this phone, the Byte opens there.</p>
+  <a class="btn" id="open" href="#">Open in ORBY</a>
+  <a class="btn ghost" id="get" href="#">Get ORBY</a>
+  <small>ORBY: career practice in a few minutes a day.</small>
+</main>
+<script>
+  var GET_ORBY = 'https://joejutsu.github.io/orby-site/';
+  var q = new URLSearchParams(location.search).get('q') || '';
+  var deep = 'com.josephananth.orby://' + (q ? 'quick/' + encodeURIComponent(q) : '');
+  document.getElementById('open').href = deep;
+  document.getElementById('get').href = GET_ORBY;
+  // Try the app at once; if the page is still in front a moment later, ORBY isn't installed.
+  var left = false;
+  document.addEventListener('visibilitychange', function () { if (document.hidden) left = true; });
+  setTimeout(function () { location.href = deep; }, 50);
+  setTimeout(function () {
+    if (left) return;
+    document.getElementById('title').textContent = 'Get ORBY to watch this';
+    document.getElementById('sub').textContent = 'This Byte plays in the ORBY app. Get it, then open the link again.';
+  }, 1800);
+</script>
+</body>
+</html>
